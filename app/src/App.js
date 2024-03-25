@@ -39,7 +39,7 @@ function App() {
           description: "",
           date: "",
         });
-        window.location.reload(); 
+        window.location.reload();
       })
       .catch((err) => {
         console.log(err);
@@ -59,7 +59,7 @@ function App() {
           description: "",
           date: "",
         });
-        window.location.reload(); 
+        window.location.reload();
       })
       .catch((err) => {
         console.log(err);

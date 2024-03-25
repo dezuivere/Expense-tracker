@@ -1,10 +1,10 @@
 /* styles.css */
 
-.header{
-margin-left: 650px;
-font-family: monospace;
-font-size: xx-large;
-color:cadetblue;
+.header {
+  margin-left: 650px;
+  font-family: monospace;
+  font-size: xx-large;
+  color: cadetblue;
 }
 .add-income,
 .add-expense {
@@ -19,11 +19,6 @@ color:cadetblue;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
-
-
-
-
-
 
 .add-income {
   background-color: #f2f2f2;
@@ -47,8 +42,6 @@ color:cadetblue;
   border-radius: 20px;
 }
 
-
-
 /*css*/
 .flex-container {
   display: flex;
@@ -70,7 +63,6 @@ color:cadetblue;
 .income-list,
 .expense-list {
   flex-direction: column;
-  
 }
 
 .income-list ul,
@@ -91,7 +83,6 @@ color:cadetblue;
 
 .expense-list ul {
   list-style-type: none;
-  
 }
 
 .expense-list li {
@@ -118,7 +109,6 @@ color:cadetblue;
   background-color: #e9ecef;
 }
 
-
 .income-list ul {
   list-style-type: none;
   padding: 0;
@@ -133,9 +123,7 @@ color:cadetblue;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
 }
-
 
 .income-list .delete-icon {
   cursor: pointer;
@@ -152,7 +140,7 @@ color:cadetblue;
 .total-income {
   margin: 20px auto;
   padding: 20px;
-  width:300px;
+  width: 300px;
   text-align: center;
   background-color: #f8f9fa;
   border-radius: 10px;
@@ -186,8 +174,6 @@ color:cadetblue;
 .add-btn:hover {
   background-color: #e9ecef;
 }
-
-
 
 /* Media queries for responsiveness */
 @media (max-width: 768px) {
@@ -232,5 +218,3 @@ color:cadetblue;
 .add-btn {
   animation: slideIn 0.5s ease;
 }
-
-
