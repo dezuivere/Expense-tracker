@@ -27,6 +27,7 @@ function App() {
       [name]: value,
     }));
   };
+  //this will add new income to the incomelist
   const handleAddInc = (e) => {
     e.preventDefault();
     axios
@@ -46,7 +47,7 @@ function App() {
         alert("error adding income");
       });
   };
-
+//this will add new expense to the expense list
   const handleAddExp = (e) => {
     e.preventDefault();
     axios
@@ -66,12 +67,14 @@ function App() {
         alert("error adding expense");
       });
   };
-
+ 
   const [expense, setExpense] = useState([]);
+  
   useEffect(() => {
     fetchIncome();
     fetchExpense();
   }, []);
+  //fetches the income from the database
   function fetchIncome() {
     axios
       .get("http://localhost:8080/income")
@@ -83,6 +86,7 @@ function App() {
         console.log("error fetching income", err);
       });
   }
+  //fetches the expense from the database
   function fetchExpense() {
     axios
       .get("http://localhost:8080/expense")
@@ -94,7 +98,7 @@ function App() {
         console.log("error fetching expense", err);
       });
   }
-
+//deletes the expense from the database
   const removeExpense = (id) => {
     axios
       .delete(`http://localhost:8080/removeexpense/${id}`)
@@ -106,7 +110,7 @@ function App() {
         console.error("Error removing expense:", error);
       });
   };
-
+//removes the income from the database
   const removeIncome = (id) => {
     axios
       .delete(`http://localhost:8080/removeincome/${id}`)
@@ -118,6 +122,7 @@ function App() {
         console.error("Error removing expense:", error);
       });
   };
+  //calculates the total income
   const calculateTotalincome = () => {
     const totalIncome = income.reduce(
       (acc, curr) => acc + parseFloat(curr.income),
@@ -132,6 +137,8 @@ function App() {
     );
     return totalIncome - totalExpense;
   };
+
+  //calculates total expense
   const calculateTotalexpense = () => {
     return expense.reduce((acc, curr) => acc + parseFloat(curr.amount), 0);
   };
