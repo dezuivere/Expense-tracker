@@ -11,6 +11,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 const connection = require("./db.js");
 
+
+//to fetch income from database
 app.get("/income", (req, res) => {
   connection.query("SELECT * FROM income", (err, results) => {
     if (err) {
@@ -23,6 +25,7 @@ app.get("/income", (req, res) => {
   });
 });
 
+//to add income to database
 app.post("/addincome", (req, res) => {
   const { income, description, date } = req.body;
   connection.query(
@@ -38,7 +41,7 @@ app.post("/addincome", (req, res) => {
     }
   );
 });
-
+//to fetch expense from database
 app.get("/expense", (req, res) => {
   connection.query("SELECT * FROM expense", (err, results) => {
     if (err) {
@@ -49,7 +52,7 @@ app.get("/expense", (req, res) => {
     res.json(results);
   });
 });
-
+//to add expense to database
 app.post("/addexpense", (req, res) => {
   const { amount, description, date } = req.body;
   const newExpense = { amount, description, date };
@@ -62,7 +65,7 @@ app.post("/addexpense", (req, res) => {
     res.sendStatus(200);
   });
 });
-
+//to remove expense from database
 app.delete("/removeexpense/:id", (req, res) => {
   const id = req.params.id;
   connection.query("DELETE FROM expense WHERE id = ?", id, (err, result) => {
@@ -74,7 +77,7 @@ app.delete("/removeexpense/:id", (req, res) => {
     res.sendStatus(200);
   });
 });
-
+//to delete income from database
 app.delete("/removeincome/:id", (req, res) => {
   const id = req.params.id;
   connection.query("DELETE FROM income WHERE id = ?", id, (err, result) => {
